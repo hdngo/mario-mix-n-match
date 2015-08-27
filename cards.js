@@ -1,17 +1,24 @@
 window.onload = function(){
  var newGame = new game();
- console.log(newGame.attempts);
- console.log(newGame.over);
- console.log(characters)
- console.log(backCards)
-
- // for(card in backCards){
- // 	if(backCards.hasOwnProperty(card)){
-		
-	// }
-	// }
+ 
+	// var attemptsCount = document.getElementById("attempts")
+	// attemptsCount.innerText = newGame.attempts;
 	setCards();
+
+	//reminder, must include eventListener part in the window.onload
+	for(frontCard in frontCards){
+		if(frontCards.hasOwnProperty(frontCard)){
+			frontCards[frontCard].addEventListener('click', flipOver)
+		}
+	}
+
+	// for cards that are flipped, grab the ones that have a backface visibility that is not hidden and check their background urls against one another
 }
+
+var cardsFlipped = 0;
+
+//not yet used
+var potentialPair = [];
 
 function game(){
 	this.attempts = 0,
@@ -39,10 +46,13 @@ function setCards(){
 	cardImages = characterKeys.concat(characterKeys)
 	for(card in backCards){
 		if(backCards.hasOwnProperty(card)){
+			//generate random index
 			imageIndex = Math.floor(Math.random()*cardImages.length);
+			//grab the image url from the characters hash based on the index generated - the index references an element in the cardImages array which contains keys from the characters hash
 			urlString = "url('".concat(characters[cardImages[imageIndex]]).concat("')")
 			backCards[card].style.background = urlString;
 			backCards[card].style.backgroundSize = '100% 140px';
+			//after adding an image, remove the image (its key) from the remaining options in the cardImages array
 			cardImages.splice(imageIndex, 1)
 		}
 	}
@@ -51,3 +61,12 @@ function setCards(){
 // Object.keys(obj) method returns an array of a given object's own enumerable properties. source: MDN
 
 var backCards = document.getElementsByClassName('back');
+
+var frontCards = document.getElementsByClassName('front')
+
+
+function flipOver(){
+	this.closest('.card-container').classList.toggle('active')
+	cardsFlipped++;
+}
+

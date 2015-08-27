@@ -48,11 +48,11 @@ table{
 /*lesson learned: we have to have the back panel be rotated so its facing backwards right from the get go to prevent us from seeing it and make use of backface visibility*/
 .back{
 	transform:rotateY(180deg);
-	/*background: url('http://vignette2.wikia.nocookie.net/papermario/images/4/4e/Goomba.png/revision/latest?cb=20120704200900');*/
 	background-size: 100% 140px;
 }
 
-.card-container:hover .card{
+/*attempting to make card rotate only upon clicking the front - will make use of toggle and active*/
+.card-container.active .card{
 	transform:rotateY(180deg);
 }
 
