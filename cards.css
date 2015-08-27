@@ -40,11 +40,16 @@ table{
 .front{
 	z-index:2;
 	transform:rotateY(0deg);
+	background: url('./imgs/mushroom.png') center no-repeat;
+	background-size: 80% 80%;
+	background-color:#3F51B5;
 }
 
 /*lesson learned: we have to have the back panel be rotated so its facing backwards right from the get go to prevent us from seeing it and make use of backface visibility*/
 .back{
 	transform:rotateY(180deg);
+	/*background: url('http://vignette2.wikia.nocookie.net/papermario/images/4/4e/Goomba.png/revision/latest?cb=20120704200900');*/
+	background-size: 100% 140px;
 }
 
 .card-container:hover .card{
@@ -56,14 +61,14 @@ table{
 	transform-style:preserve-3d;
 }
 
-#first{
-	background: url('http://vignette1.wikia.nocookie.net/mario/images/8/8c/Mushroom.png/revision/latest?cb=20101223220717') center no-repeat;
+/*#first{*/
+	/*background: url('http://vignette1.wikia.nocookie.net/mario/images/8/8c/Mushroom.png/revision/latest?cb=20101223220717') center no-repeat;
 	background-size: 80% 80%;
-	background-color:blue;
-}
+	background-color:#3F51B5;*/
+/*}*/
 
 #second{
-	background: url('http://vignette2.wikia.nocookie.net/papermario/images/4/4e/Goomba.png/revision/latest?cb=20120704200900');
-	background-size: 100% 140px;
+	/*background: url('http://vignette2.wikia.nocookie.net/papermario/images/4/4e/Goomba.png/revision/latest?cb=20120704200900');
+	background-size: 100% 140px;*/
 }
 
