@@ -1,0 +1,69 @@
+
+html, body{
+	height:100%;
+}
+
+
+#card-map{
+	margin-top:3%;
+	height:90%;
+}
+
+table{
+	width:80%;
+	height:100%;
+	margin: 0 auto;
+}
+
+.card-container, .front, .back{
+	height:140px;
+	width:140px;
+	border:1px solid red;
+}
+
+/*apparently need card to have a position relative*/
+.card{
+	position:relative;
+}
+
+/*set the front and back panels to have hidden backface visibility, and position absolute so that they overlay each other in the same position*/
+
+/*not sure if top & left are necessary here*/
+.front, .back{
+	backface-visibility:hidden;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+/*use a z-index to set the front panel on top of the back panel*/
+.front{
+	z-index:2;
+	transform:rotateY(0deg);
+}
+
+/*lesson learned: we have to have the back panel be rotated so its facing backwards right from the get go to prevent us from seeing it and make use of backface visibility*/
+.back{
+	transform:rotateY(180deg);
+}
+
+.card-container:hover .card{
+	transform:rotateY(180deg);
+}
+
+.card{
+	transition:2s ease;
+	transform-style:preserve-3d;
+}
+
+#first{
+	background: url('http://vignette1.wikia.nocookie.net/mario/images/8/8c/Mushroom.png/revision/latest?cb=20101223220717') center no-repeat;
+	background-size: 80% 80%;
+	background-color:blue;
+}
+
+#second{
+	background: url('http://vignette2.wikia.nocookie.net/papermario/images/4/4e/Goomba.png/revision/latest?cb=20120704200900');
+	background-size: 100% 140px;
+}
+
