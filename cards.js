@@ -33,6 +33,8 @@ window.onload = function(){
 			console.log('keep flippin buddy')
 		}
 	}
+
+	
 	// for cards that are flipped, grab the ones that have a backface visibility that is not hidden and check their background urls against one another
 
 	var resetButton = document.getElementById('reset-btn')
@@ -70,18 +72,26 @@ function Game(){
 		}
 	},
 	this.checkPair = function(){
-
+		body = document.body;
+		body.style.pointerEvents = 'none';
 		firstCard = this.potentialPair[0]
 		secondCard = this.potentialPair[1]
 		backOfFirstCard = this.potentialPair[0].getElementsByClassName('back')[0]
 		backOfSecondCard = this.potentialPair[1].getElementsByClassName('back')[0]
+		this.potentialPair = [];
 		if(backOfFirstCard.style.background !== backOfSecondCard.style.background){
 			console.log('no match')
 			setTimeout(function(){
 				firstCard.classList.toggle('active');
-			secondCard.classList.toggle('active')},1200)
+				secondCard.classList.toggle('active');
+				body.style.pointerEvents = 'auto';
+			},1200)
 		}
-		this.potentialPair = [];
+		else{
+			setTimeout(function(){
+				body.style.pointerEvents = 'auto';
+			},1200)
+		}
 	}
 }
 
@@ -111,6 +121,7 @@ var frontCards = document.getElementsByClassName('front')
 //potential lesson learned: cannot grab an element by an id and work with it within the window.onload scope unless I actually grab the element within the window.onload scope, BUT, grabbing elements byClassName outside of the scope allows you to access the element within the scope.
 // var resetButton = document.getElementsByClassName('reset-btn')
 // var resetButton = document.getElementById('reset-btn')
+
 
 
 
