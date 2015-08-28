@@ -21,8 +21,10 @@ window.onload = function(){
 		newGame.cardsFlipped++;
 		console.log(newGame.cardsFlipped)
 		console.log(newGame.potentialPair)
-		console.log(this.nextElementSibling);
-		selectedCard = this.nextElementSibling;
+		// console.log(this.nextElementSibling);
+		// selectedCard = this.nextElementSibling;
+		// newGame.potentialPair.push(selectedCard);
+		selectedCard = this.closest('.card-container')
 		newGame.potentialPair.push(selectedCard);
 		if(newGame.cardsFlipped % 2 === 0){
 			newGame.checkPair();
@@ -68,17 +70,18 @@ function Game(){
 		}
 	},
 	this.checkPair = function(){
-		// console.log('checkkkkked')
-		console.log(this.potentialPair[0].style.background === this.potentialPair[1].style.background) // true or false
-		console.log(this.potentialPair[0])
-		var x = this.potentialPair[0];
-		if(x){
-			console.log(x);
-		}	
-		// if(this.potentialPair[0].style.background === this.potentialPair[1].style.background){
-		// 	console.log(potentialPair[0]);
-		// }
-		// this.potentialPair = [];
+
+		firstCard = this.potentialPair[0]
+		secondCard = this.potentialPair[1]
+		backOfFirstCard = this.potentialPair[0].getElementsByClassName('back')[0]
+		backOfSecondCard = this.potentialPair[1].getElementsByClassName('back')[0]
+		if(backOfFirstCard.style.background !== backOfSecondCard.style.background){
+			console.log('no match')
+			setTimeout(function(){
+				firstCard.classList.toggle('active');
+			secondCard.classList.toggle('active')},1200)
+		}
+		this.potentialPair = [];
 	}
 }
 
