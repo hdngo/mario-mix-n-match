@@ -34,7 +34,7 @@ window.onload = function(){
 	// for cards that are flipped, grab the ones that have a backface visibility that is not hidden and check their background urls against one another
 
 	var resetButton = document.getElementById('reset-btn')
-	console.log(resetButton);
+	resetButton.addEventListener('click', newGame.reset);
 }
 
 // var cardsFlipped = 0;
@@ -50,6 +50,7 @@ function Game(){
 	this.reset = function(){
 		this.attempts = 0;
 		this.over = false;
+		location.reload();
 	},
 	this.setCards =  function(){
 		cardImages = characterKeys.concat(characterKeys)
@@ -68,7 +69,16 @@ function Game(){
 	},
 	this.checkPair = function(){
 		// console.log('checkkkkked')
-		console.log(this.potentialPair[0].style.background === this.potentialPair[1].style.background)
+		console.log(this.potentialPair[0].style.background === this.potentialPair[1].style.background) // true or false
+		console.log(this.potentialPair[0])
+		var x = this.potentialPair[0];
+		if(x){
+			console.log(x);
+		}	
+		// if(this.potentialPair[0].style.background === this.potentialPair[1].style.background){
+		// 	console.log(potentialPair[0]);
+		// }
+		// this.potentialPair = [];
 	}
 }
 

@@ -51,6 +51,7 @@ table{
 	background-size: 100% 140px;
 }
 
+
 /*attempting to make card rotate only upon clicking the front - will make use of toggle and active*/
 .card-container.active .card{
 	transform:rotateY(180deg);
@@ -61,14 +62,5 @@ table{
 	transform-style:preserve-3d;
 }
 
-/*#first{*/
-	/*background: url('http://vignette1.wikia.nocookie.net/mario/images/8/8c/Mushroom.png/revision/latest?cb=20101223220717') center no-repeat;
-	background-size: 80% 80%;
-	background-color:#3F51B5;*/
-/*}*/
 
-#second{
-	/*background: url('http://vignette2.wikia.nocookie.net/papermario/images/4/4e/Goomba.png/revision/latest?cb=20120704200900');
-	background-size: 100% 140px;*/
-}
 
