@@ -1,8 +1,8 @@
 window.onload = function(){
  var newGame = new Game();
  
-	// var attemptsCount = document.getElementById("attempts")
-	// attemptsCount.innerText = newGame.attempts;
+	var attemptsCount = document.getElementById("attempts")
+	attemptsCount.innerText = newGame.attempts;
 	newGame.setCards();
 
 	//reminder, must include eventListener part in the window.onload
@@ -28,6 +28,8 @@ window.onload = function(){
 		newGame.potentialPair.push(selectedCard);
 		if(newGame.cardsFlipped % 2 === 0){
 			newGame.checkPair();
+			newGame.attempts++;
+			attemptsCount.innerText = newGame.attempts;
 		}
 		else{
 			console.log('keep flippin buddy')
